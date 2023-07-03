@@ -1,0 +1,19 @@
+syntax = "proto3";
+
+package rdma;
+
+message QPEndpoint {
+    uint32 num = 1;
+    uint32 lid = 2;
+    OpaqueGid gid = 3;    
+}
+
+// Represented by Gid in async-rdma.  This is just a 128bit value from 2 64bit ones.
+message OpaqueGid {
+    repeated bytes gid = 1;
+}
+
+message GidParts {
+    uint64 subnet_prefix = 1;
+    uint64 interface_id = 2;
+}

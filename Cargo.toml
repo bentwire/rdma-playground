@@ -1,0 +1,39 @@
+[package]
+name = "rdma-playground"
+version = "0.1.0"
+edition = "2021"
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+[dependencies]
+#async-rdma = "0.4.0"
+tokio-graceful-shutdown = "0.13.0"
+tokio-console = "0.1.8"
+tokio-metrics = "0.2.2"
+tracing-subscriber = "0.3.17"
+clap_derive = "4.3.2"
+tonic = "0.9.2"
+prost = "0.11.9"
+tonic-health = "0.9.2"
+tonic-reflection = "0.9.2"
+tonic-types = "0.9.2"
+figment = { version = "0.10.10", features = ["env", "json", "serde_json", "serde_yaml", "toml", "yaml"] }
+
+[dependencies.tokio]
+version = "1.29.1"
+features = ["full"]
+
+[dependencies.tracing]
+version  = "0.1.37"
+features = ["max_level_debug"]
+
+[dependencies.clap]
+version = "4.3.10"
+features = ["derive"]
+
+[dependencies.async-rdma]
+git = "https://github.com/bentwire/async-rdma.git"
+branch = "update-hex-simd"
+
+[build-dependencies]
+tonic-build = "0.9.2"
