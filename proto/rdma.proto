@@ -2,15 +2,24 @@ syntax = "proto3";
 
 package rdma;
 
+service Rdma {
+    // Exchange QP Endpoints.  Returns the servers endpoint.
+    rpc Exchange (QPEndpoint) returns (QPEndpoint);
+}
+
+message QPEndpointRequest {
+// Nothing
+}
+
 message QPEndpoint {
     uint32 num = 1;
-    uint32 lid = 2;
-    OpaqueGid gid = 3;    
+    uint32 lid = 2; // This is a uint16
+    bytes gid = 3; // this is a u128
 }
 
 // Represented by Gid in async-rdma.  This is just a 128bit value from 2 64bit ones.
 message OpaqueGid {
-    repeated bytes gid = 1;
+    bytes gid = 1;
 }
 
 message GidParts {

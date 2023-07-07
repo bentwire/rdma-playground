@@ -1,0 +1,4 @@
+server_url = "http://127.0.0.1:45000"
+manager_url = "http://127.0.0.1:45000"
+rdma_dev = "mlx4_0"
+rdma_dev_port = 1
